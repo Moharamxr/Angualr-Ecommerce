@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-center ">
+  <div class="col-5 card  p-2 mt-2" *ngIf="product">
+    <img
+      [src]="product.image"
+      class="card-img-top  align-self-center"
+      width="200px" height="300px"
+      [alt]="product.name"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">
+        {{ product.description }}
+      </p>
+      <h4 class="d-block p-2">
+        {{ product.price | currency:'EGP' }}
+      </h4>
+      <p>{{ product.createdAt | date : "short" }}</p>
+      <div class="d-flex justify-content-start align-items-start">
+        <a class="btn btn-primary" (click)="onAddToCart(product)">Add to Cart</a>
+        
+      </div>
+    </div>
+  </div>
+</div>

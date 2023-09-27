@@ -1,0 +1,26 @@
+<div class="container ">
+  <div class="row justify-content-center mt-3">
+    <ng-container *ngIf="products.length > 0; else emptyCart">
+      <div class="col-md-4 mb-4" *ngFor="let product of products">
+        <div class="card h-100">
+          <img [src]="product.image" class="card-img-top" [alt]="product.title" width="200px" height="300px" />
+          <div class="card-body">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-text">{{ product.price | currency:'EGP' }}</p>
+            <div class="d-flex align-items-center">
+              <p><b>Quantity: </b>{{ product.quantity }}</p>
+              <button type="button" class="btn btn-sm btn-success rounded-0 m-2" (click)="onAdd(product)">+</button>
+              <button type="button" class="btn btn-sm btn-danger rounded-0 m-2" (click)="onDelete(product)">-</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #emptyCart>
+      <div class="col-md-12 text-center">
+        <h3>Your Cart is Empty!</h3>
+      </div>
+    </ng-template>
+  </div>
+</div>

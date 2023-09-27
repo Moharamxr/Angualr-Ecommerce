@@ -1,0 +1,30 @@
+<div class="container ">
+  <div class="row">
+    <div class="col-lg-4 mt-3" *ngFor="let product of products">
+
+      <div class="card d-flex flex-column justify-content-between" (click)="showDetails(product.id)">
+        <a href="#" class="text-decoration-none text-black  " [routerLink]="['/products/details']"
+          [queryParams]="{ id: product.id }">
+          <img [src]="product.image" width="200px" height="300px" class="card-img-top" [alt]="product.title" />
+
+          <div class="card-body">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <p class="card-text">
+              {{ product.description }}
+            </p>
+          </div>
+
+        </a>
+
+        <div class="">
+          <a class="btn btn-outline-primary m-4 " (click)="onAddToCart(product)">Add to Cart</a>
+          <a href="#" class="btn btn-secondary ms-2" [routerLink]="['/products/details']"
+            [queryParams]="{ id: product.id }">
+            Go to Details</a>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
